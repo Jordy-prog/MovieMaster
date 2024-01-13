@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>MovieThing!</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <img id="logo" src="static/logo.png">
+            <nav>
+                <a class="nav-item" href="home.html">Home</a>
+                <a class="nav-item" href="movielist_overview.html">Movie Lists</a>
+                <a class="nav-item" href="user_overview.html">Users</a>
+                <div class="nav-dropdown">
+                    <div class="nav-item w-100 active" onclick="showDropdown()">Account <i id="dropdown_arrow" class="fa fa-caret-down"></i></div>
+                    <div id="account" class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="index.html">Login / Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div id="profile-grid">
+                <div>
+                    <div id="profile-bar" class="card">
+                        <img class="card-image" src="static/profile_pic.jpg">
+                        <div class="card-header border-round-none text-center">
+                            <h2>Jordy Schifferstein<i class="fa fa-star"></i></h2>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list">
+                                <li>Gender: Male</li>
+                                <li>Age: 24</li>
+                                <li>
+                                    Friends:
+                                    <ul>
+                                        <li>Senna <span class="valign-middle button-close">&times;</span></li>
+                                        <li>Tom <span class="valign-middle button-close">&times;</span></li>
+                                        <li>Martijn <span class="valign-middle button-close">&times;</span></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Favourite actors:
+                                    <ul>
+                                        <li>Henry Cavill</li>
+                                        <li>Emma Watson</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="p-2 d-flex-row justify-center">
+                        <button class="button-success w-100">Get premium!</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="d-flex-row justify-right">
+                        <button class="button-success" onclick="showModal('movielistModal')">Create new list</button>
+                    </div>
+                    <h2 class="shadow">My lists:</h2>
+                    <div class="card-results">
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><a href="movielist.html" class="text-white">Movielist title</a></h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list">
+                                        <li>Title 1</li>
+                                        <li>Title 2</li>
+                                        <li>Title 3</li>
+                                        <li>Title 4</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex-inline align-center gap font-xl">
+                                        <button class="button-fail">Delete</button>
+                                    </div>
+                                    <span class="d-flex-inline align-center"><i>By You</i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><a href="movielist.html" class="text-white">Movielist title</a></h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list">
+                                        <li>Title 1</li>
+                                        <li>Title 2</li>
+                                        <li>Title 3</li>
+                                        <li>Title 4</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex-inline align-center gap font-xl">
+                                        <button class="button-fail">Delete</button>
+                                    </div>
+                                    <span class="d-flex-inline align-center"><i>By You</i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="shadow">Followed lists:</h2>
+                    <div class="card-results">
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><a href="movielist.html">Movielist title</a></h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list">
+                                        <li>Title 1</li>
+                                        <li>Title 2</li>
+                                        <li>Title 3</li>
+                                        <li>Title 4</li>
+                                        <li>Title 5</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex-inline align-center gap font-xl">
+                                        <button class="button-success pressed" onclick="followList(this)">Unfollow</button>
+                                        <i class="fa fa-thumbs-up" onclick="likeList(this)"></i>
+                                        <i class="fa fa-thumbs-down" onclick="likeList(this)"></i>
+                                    </div>
+                                    <span class="d-flex-inline align-center"><i>By Jordy</i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><a href="movielist.html">Movielist title</a></h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list">
+                                        <li>Title 1</li>
+                                        <li>Title 2</li>
+                                        <li>Title 3</li>
+                                        <li>Title 4</li>
+                                        <li>Title 5</li>
+                                    </ul>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="d-flex-inline align-center gap font-xl">
+                                        <button class="button-success pressed" onclick="followList(this)">Unfollow</button>
+                                        <i class="fa fa-thumbs-up" onclick="likeList(this)"></i>
+                                        <i class="fa fa-thumbs-down" onclick="likeList(this)"></i>
+                                    </div>
+                                    <span class="d-flex-inline align-center"><i>By Jordy</i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="movielistModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Create new Movie list!</h3>
+                        <span class="float-right button-close" onclick="hideModal('movielistModal')">&times;</span>
+                    </div>
+                    <form id="list_form" action="">
+                        <input type="text" name="list-title" placeholder="List name...">
+                        <textarea type="textarea" name="description" placeholder="description..."></textarea>
+                        <h3 class="text-center">Movies:</h3>
+                        <input type="text" name="movie1" placeholder="Movie 1">
+                        <input type="text" name="movie2" placeholder="Movie 2">
+                        <input type="text" name="movie3" placeholder="Movie 3">
+                        <input type="text" name="movie4" placeholder="Movie 4">
+                        <input type="text" name="movie5" placeholder="Movie 5">
+                        <input type="text" name="movie6" placeholder="Movie 6">
+                        <input type="text" name="movie7" placeholder="Movie 7">
+                        <input type="text" name="movie8" placeholder="Movie 8">
+                        <input type="text" name="movie9" placeholder="Movie 9">
+                        <input type="text" name="movie10" placeholder="Movie 10">
+                    </form>
+                    <div class="modal-footer">
+                        <button class="button-fail" onclick="hideModal('movielistModal')">Cancel</button>
+                        <input form="#list_form" type="submit" class="button-success" value="Create new list!">
+                    </div>
+                </div>
+              
+              </div>
+        </main>
+
+        <script src="static/scripts.js"></script>
+    </body>
+</html>

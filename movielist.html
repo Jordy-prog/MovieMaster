@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>MovieThing!</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <img id="logo" src="static/logo.png">
+            <nav>
+                <a class="nav-item" href="home.html">Home</a>
+                <a class="nav-item" href="movielist_overview.html">Movie Lists</a>
+                <a class="nav-item" href="user_overview.html">Users</a>
+                <div class="nav-dropdown">
+                    <div class="nav-item w-100" onclick="showDropdown()">Account <i id="dropdown_arrow" class="fa fa-caret-down"></i></div>
+                    <div id="account" class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="index.html">Login / Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div id="movielist-grid">
+                <div>
+                    <div id="starred-movielist" class="card">
+                        <div class="card-header">
+                            <h3>Movielist title</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list">
+                                <li>Title 1</li>
+                                <li>Title 2</li>
+                                <li>Title 3</li>
+                                <li>Title 4</li>
+                                <li>Title 5</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex-inline align-center gap font-xl">
+                                <button class="button-success" onclick="followList(this)">Follow</button>
+                                <i class="fa fa-thumbs-up" onclick="likeList(this)"></i>
+                                <i class="fa fa-thumbs-down" onclick="likeList(this)"></i>
+                            </div>
+                            <span class="d-flex-inline align-center"><i>By Jordy</i></span>
+                        </div>
+                    </div>
+                    <div class="p-1 shadow">DESCRIPTION</div>
+                </div>
+                <div>
+                    <div class="d-flex-row justify-right">
+                        <button class="button-success" onclick="showModal('commentModal')">Create new comment</button>
+                    </div>
+                    <h2 class="shadow">Comments:</h2>
+                    <div class="card-results">
+                        <div class="comment-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>- Jordy</h3>
+                                </div>
+                                <div class="card-body p-2">
+                                    <span>COMMENT 1</span>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="button-success" onclick="replyToComment(this)">Reply</button>
+                                    <button class="button-success" onclick="showReplies(this)">Replies (2)</button>
+                                </div>
+                            </div>
+                            <div class="replies hide">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>- Eva</h3>
+                                    </div>
+                                    <div class="card-body p-2 border-bottom-round-lg">
+                                        <span>Reply 1</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>- Senna</h3>
+                                    </div>
+                                    <div class="card-body p-2 border-bottom-round-lg">
+                                        <span>Reply 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>- Eva</h3>
+                                </div>
+                                <div class="card-body p-2">
+                                    <span>COMMENT 2</span>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="button-success" onclick="replyToComment(this)">Reply</button>
+                                    <button class="button-success" onclick="showReplies(this)">Replies (0)</button>
+                                </div>
+                            </div>
+                            <div class="replies hide shadow">
+                                No replies!
+                            </div>
+                        </div>
+                        <div class="comment-section">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>- Senna</h3>
+                                </div>
+                                <div class="card-body p-2">
+                                    <span>COMMENT 3</span>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="button-success" onclick="replyToComment(this)">Reply</button>
+                                    <button class="button-success" onclick="showReplies(this)">Replies (1)</button>
+                                </div>
+                            </div>
+                            <div class="replies hide">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3>- Jordy</h3>
+                                    </div>
+                                    <div class="card-body p-2 border-bottom-round-lg">
+                                        <span>Reply 1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+       
+                </div>
+            </div>
+            <div id="commentModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Create new comment</h3>
+                        <span class="float-right button-close" onclick="hideModal('commentModal')">&times;</span>
+                    </div>
+                    <form id="comment_form" action="">
+                        <textarea type="textarea" name="comment" rows="10" placeholder="Type a comment..."></textarea>
+                    </form>
+                    <div class="modal-footer">
+                        <button class="button-fail" onclick="hideModal('commentModal')">Cancel</button>
+                        <input form="#comment_form" class="button-success" type="submit" value="Create Comment!">
+                    </div>
+                </div>
+            </div>
+            <div id="replyModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Reply to:</h3>
+                        <span class="float-right button-close" onclick="hideModal('replyModal')">&times;</span>
+                    </div>
+                    <span id="original_comment">
+                    </span>
+                    <hr>
+                    <form id="reply_form" action="">
+                        <textarea type="textarea" name="reply" rows="10" placeholder="Type a reply..."></textarea>
+                    </form>
+                    <div class="modal-footer">
+                        <button class="button-fail" onclick="hideModal('replyModal')">Cancel</button>
+                        <input form="#reply_form" class="button-success" type="submit" value="Reply!">
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="static/scripts.js"></script>
+    </body>
+</html>

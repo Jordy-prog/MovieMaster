@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>MovieThing!</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    </head>
+    <body>
+        <header>
+            <img id="logo" src="static/logo.png">
+            <nav>
+                <a class="nav-item" href="home.html">Home</a>
+                <a class="nav-item" href="movielist_overview.html">Movie Lists</a>
+                <a class="nav-item active" href="user_overview.html">Users</a>
+                <div class="nav-dropdown">
+                    <div class="nav-item w-100" onclick="showDropdown()">Account <i id="dropdown_arrow" class="fa fa-caret-down"></i></div>
+                    <div id="account" class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="index.html">Login / Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="d-flex-row justify-center p-3">
+                <section id="search-bar">
+                    <input id="search-box" class="p-2 m-0" type="text" name="query" placeholder="Username...">
+                    <input class="button-success" type="submit" value="Search!">
+                </section>
+            </div>
+            <div class="card-results">
+                <div class="card">
+                    <img class="card-image" src="static/profile_pic.jpg">
+                    <div class="card-footer">
+                        <h2>Jordy</h2>
+                        <button class="button-success" onclick="addFriend(this)">Add friend!</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-image" src="static/profile_pic.jpg">
+                    <div class="card-footer">
+                        <h2>Again me</h2>
+                        <button class="button-success" onclick="addFriend(this)">Add friend!</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-image" src="static/profile_pic.jpg">
+                    <div class="card-footer">
+                        <h2>Yet again... me</h2>
+                        <button class="button-success" onclick="addFriend(this)">Add friend!</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="static/scripts.js"></script>
+    </body>
+</html>

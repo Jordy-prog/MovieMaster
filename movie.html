@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>MovieThing!</title>
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <header>
+            <img id="logo" src="static/logo.png">
+            <nav>
+                <a class="nav-item" href="home.html">Home</a>
+                <a class="nav-item" href="movielist_overview.html">Movie Lists</a>
+                <a class="nav-item" href="user_overview.html">Users</a>
+                <div class="nav-dropdown">
+                    <div class="nav-item w-100" onclick="showDropdown()">Account <i id="dropdown_arrow" class="fa fa-caret-down"></i></div>
+                    <div id="account" class="dropdown-content">
+                        <a href="profile.html">Profile</a>
+                        <a href="index.html">Login / Register</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div id="movie-grid">
+                <div>
+                    <img class="w-100 border-round-lg" src="static/default_poster.jpg">
+                    <form action="">
+                        <select>
+                            <option>MyList1</option>
+                            <option>MyList2</option>
+                            <option>MyList3</option>
+                        </select>
+                        <input class="button-success" type="submit" value="Add to list!">
+                    </form>
+                </div>
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            General information
+                        </div>
+                        <div class="card-body">
+                            <ul class="list">
+                                <li>
+                                    <b>Title: </b>
+                                    <span>Movie title</span>
+                                </li>
+                                <li>
+                                    <b>Release: </b>
+                                    <span>Year of release</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="card">
+                        <div class="card-header">
+                            Actors
+                        </div>
+                        <div class="card-body">
+                            <ul class="list">
+                                <li>
+                                    <i class="fa fa-star-o button" onclick="favouriteActor(this)"></i>
+                                    <span>Actor Name</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star-o button" onclick="favouriteActor(this)"></i>
+                                    <span>Actor Name</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star-o button" onclick="favouriteActor(this)"></i>
+                                    <span>Actor Name</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star-o button" onclick="favouriteActor(this)"></i>
+                                    <span>Actor Name</span>
+                                </li>
+                                <li>
+                                    <i class="fa fa-star-o button" onclick="favouriteActor(this)"></i>
+                                    <span>Actor Name</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="static/scripts.js"></script>
+    </body>
+</html>
